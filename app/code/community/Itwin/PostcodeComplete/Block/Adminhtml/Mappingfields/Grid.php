@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
  * Magento
  *
@@ -17,13 +16,22 @@
  * @package    Itwin_PostcodeComplete
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
--->
 
-<config>
-    <modules>
-        <Itwin_PostcodeComplete>
-            <active>true</active>
-            <codePool>community</codePool>
-        </Itwin_PostcodeComplete>
-    </modules>
-</config>
+class Itwin_PostcodeComplete_Block_Adminhtml_Mappingfields_Grid extends Mage_Adminhtml_Block_Widget_Form 
+{
+
+    public function __construct() 
+    {
+        parent::__construct();
+        $this->setTemplate('itwin/postcodecomplete/adminhtml/mappingfields/grid/form/form.phtml');
+        $this->setId('postcodecomplete_mappingfields_form');
+        $this->setTitle($this->__('Mapping of fields'));
+    }
+
+    protected function _prepareForm() 
+    {
+        $this->setChild('grid_plus', $this->getLayout()->createBlock('postcodecomplete/adminhtml_mappingfields_grid_plus'));
+        return $this;
+    }
+
+}

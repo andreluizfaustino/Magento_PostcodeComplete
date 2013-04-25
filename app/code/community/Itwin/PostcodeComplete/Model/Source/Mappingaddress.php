@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
  * Magento
  *
@@ -17,13 +16,19 @@
  * @package    Itwin_PostcodeComplete
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
--->
 
-<config>
-    <modules>
-        <Itwin_PostcodeComplete>
-            <active>true</active>
-            <codePool>community</codePool>
-        </Itwin_PostcodeComplete>
-    </modules>
-</config>
+class Itwin_PostcodeComplete_Model_Source_Mappingaddress
+{
+    public function toOptionArray()
+    {
+        $attributes = Mage::getModel('customer/entity_address_attribute_collection')->load();
+       
+        foreach ($attributes as $attribute)
+        {            
+            $result[$attribute['attribute_code']] = $attribute['attribute_code'];
+        }
+                
+        return $result;
+    }
+
+}

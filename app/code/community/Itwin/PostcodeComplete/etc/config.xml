@@ -11,7 +11,7 @@
  * http://opensource.org/licenses/osl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to suporte.developer@buscape-inc.com so we can send you a copy immediately.
+ * to developer@itwin.com.br so we can send you a copy immediately.
  *
  * @category   Itwin
  * @package    Itwin_PostcodeComplete
@@ -22,10 +22,15 @@
 <config>
     <modules>
         <Itwin_PostcodeComplete>
-            <version>0.1.1</version>
+            <version>0.1.6</version>
         </Itwin_PostcodeComplete>
     </modules>
     <global>
+        <blocks>
+            <postcodecomplete>
+                <class>Itwin_PostcodeComplete_Block</class>
+            </postcodecomplete>
+        </blocks>
         <helpers>
             <postcodecomplete>
                 <class>Itwin_PostcodeComplete_Helper</class>
@@ -34,8 +39,37 @@
         <models>
             <postcodecomplete>
                 <class>Itwin_PostcodeComplete_Model</class>
+                <resourceModel>itwin_postcodecomplete_mysql4</resourceModel>
             </postcodecomplete>
+            <itwin_postcodecomplete_mysql4>
+                <class>Itwin_PostcodeComplete_Model_Mysql4</class>
+                <entities>
+                    <mappingfields>
+                        <table>itwin_postcodecomplete_mappingfields</table>
+                    </mappingfields>
+                </entities>
+            </itwin_postcodecomplete_mysql4>    
         </models>
+        <resources>
+            <postcodecomplete_setup>
+                <setup>
+                    <module>Itwin_PostcodeComplete</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </postcodecomplete_setup>
+            <postcodecomplete_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </postcodecomplete_write>
+            <postcodecomplete_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </postcodecomplete_read>            
+        </resources>      
     </global>
     <frontend>
         <routers>
@@ -63,4 +97,31 @@
             </postcodecomplete>
         </itwin>
     </default>
+    <admin>
+        <routers>
+            <postcodecomplete>
+                <use>admin</use>
+                <args>
+                    <module>Itwin_PostcodeComplete_Adminhtml</module>
+                    <frontName>postcodecomplete</frontName>
+                </args>
+            </postcodecomplete>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Itwin_PostcodeComplete before="Mage_Adminhtml">Itwin_PostcodeComplete_Adminhtml</Itwin_PostcodeComplete>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <postcodecomplete>
+                    <file>itwin_postcodecomplete.xml</file>
+                </postcodecomplete>
+            </updates>
+        </layout>    
+    </adminhtml>    
 </config>

@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
  * Magento
  *
@@ -17,13 +16,12 @@
  * @package    Itwin_PostcodeComplete
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
--->
 
-<config>
-    <modules>
-        <Itwin_PostcodeComplete>
-            <active>true</active>
-            <codePool>community</codePool>
-        </Itwin_PostcodeComplete>
-    </modules>
-</config>
+class Itwin_PostcodeComplete_Model_Mysql4_Mappingfields_Collection extends Mage_Core_Model_Mysql4_Collection_Abstract
+{
+    public function _construct()
+    {
+        //parent::__construct();
+        $this->_init('<postcodecomplete>/<mappingfields>');
+    }   
+}

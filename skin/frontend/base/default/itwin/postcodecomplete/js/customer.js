@@ -30,8 +30,8 @@ function execWebserviceCustomer()
 {
     if ($('zip').getValue().length == 8)
     {
-        document.getElementById("street_1").focus();
-        funcaowebservicecep(postcode_complete_baseurl);
+        document.getElementById(postcodecomplete_customer_logradouro).focus();
+        funcaowebservicecep(postcodecomplete_baseurl);
     }        
 }
 
@@ -65,7 +65,7 @@ function funcaowebservicecep(baseurl)
 {   
     var http = getHTTPObject();
     
-    http.open("GET", baseurl + 'index.php/postcodecomplete/cep/number/zip/' + $("zip").getValue(), true);
+    http.open("GET", baseurl + 'index.php/postcodecomplete/cep/number/zip/' + $('zip').getValue(), true);
     http.onreadystatechange = handleHttpResponse;
     http.send(null);
 
@@ -77,12 +77,12 @@ function funcaowebservicecep(baseurl)
             var response = http.responseText;
             eval("var arr = "+response); //cria objeto com o resultado
             
-            document.getElementById("street_1").value = arr.logradouro;
-            document.getElementById("street_2").value = arr.bairro;
-            document.getElementById("city").value = arr.cidade;
-            document.getElementById("region").value = arr.uf;
+            document.getElementById(postcodecomplete_customer_logradouro).value = arr.logradouro;
+            document.getElementById(postcodecomplete_customer_bairro).value = arr.bairro;
+            document.getElementById(postcodecomplete_customer_cidade).value = arr.cidade;
+            document.getElementById(postcodecomplete_customer_uf).value = arr.uf;
             //document.getElementById("billing:street4").value = arr.complemento;
-            document.getElementById("street_1").focus();
+            document.getElementById(postcodecomplete_customer_logradouro).focus();
 
         }
     }

@@ -11,7 +11,7 @@
  * http://opensource.org/licenses/osl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to suporte.developer@buscape-inc.com so we can send you a copy immediately.
+ * to developer@itwin.com.br so we can send you a copy immediately.
  *
  * @category   Itwin
  * @package    Itwin_PostcodeComplete
@@ -20,6 +20,24 @@
 -->
 
 <config>
+    <menu>
+        <itwin translate="title">
+            <title>Itwin</title>
+            <sort_order>50</sort_order>
+            <children>
+                <itwin_postcodecomplete translate="title">
+                    <title>Postcode Complete</title>
+                    <sort_order>1</sort_order>
+                    <children>
+                        <postcodecomplete_mappingfields translate="title">
+                            <title>Mapping at Fields</title>
+                            <action>adminhtml/mappingfields</action>
+                        </postcodecomplete_mappingfields>
+                    </children>
+                </itwin_postcodecomplete>       
+            </children>
+        </itwin>
+    </menu>    
     <acl>
         <resources>
             <all>

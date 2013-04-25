@@ -22,26 +22,26 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 
-Event.observe(window, 'load', function() {
-     $('billing:postcode').observe('keyup', execWebserviceBilling);
-     $('shipping:postcode').observe('keyup', execWebserviceShipping);
+Event.observe(window, 'load', function() {  
+     $(postcodecomplete_billing_cep).observe('keyup', execWebserviceBilling);
+     $(postcodecomplete_shipping_cep).observe('keyup', execWebserviceShipping);
 });
 
 function execWebserviceBilling()
 {
-    if ($('billing:postcode').getValue().length == 8)
+    if ($(postcodecomplete_billing_cep).getValue().length == 8)
     {
-        document.getElementById("billing:street1").focus();
-        funcaowebservicecep(postcode_complete_baseurl, 'billing');
+        document.getElementById(postcodecomplete_billing_logradouro).focus();
+        funcaowebservicecep(postcodecomplete_baseurl, 'billing');
     }        
 }
     
 function execWebserviceShipping()    
 {
-    if ($('shipping:postcode').getValue().length == 8)
+    if ($(postcodecomplete_shipping_cep).getValue().length == 8)
     {
-        document.getElementById("shipping:street1").focus();
-        funcaowebservicecep(postcode_complete_baseurl, 'shipping');
+        document.getElementById(postcodecomplete_shipping_logradouro).focus();
+        funcaowebservicecep(postcodecomplete_baseurl, 'shipping');
     }        
 }
 
@@ -75,8 +75,6 @@ function funcaowebservicecep(baseurl, typefield)
 {   
     var http = getHTTPObject();
     
-    alert(typefield);
-    
     if (typefield == 'billing') 
     {
         http.open("GET", baseurl + 'index.php/postcodecomplete/cep/number/zip/' + $("billing:postcode").getValue(), true);
@@ -101,20 +99,20 @@ function funcaowebservicecep(baseurl, typefield)
             switch(typefield)
             {
                 case 'billing':
-                        document.getElementById("billing:street1").value = arr.logradouro;
-                        document.getElementById("billing:street2").value = arr.bairro;
-                        document.getElementById("billing:city").value = arr.cidade;
-                        document.getElementById("billing:region").value = arr.uf;
+                        document.getElementById(postcodecomplete_billing_logradouro).value = arr.logradouro;
+                        document.getElementById(postcodecomplete_billing_bairro).value = arr.bairro;
+                        document.getElementById(postcodecomplete_billing_cidade).value = arr.cidade;
+                        document.getElementById(postcodecomplete_billing_uf).value = arr.uf;
                         //document.getElementById("billing:street4").value = arr.complemento;
-                        document.getElementById("billing:street1").focus();
+                        document.getElementById(postcodecomplete_billing_logradouro).focus();
                     break;
                 case 'shipping':
-                        document.getElementById("shipping:street1").value = arr.logradouro;
-                        document.getElementById("shipping:street2").value = arr.bairro;
-                        document.getElementById("shipping:city").value = arr.cidade;
-                        document.getElementById("shipping:region").value = arr.uf;
+                        document.getElementById(postcodecomplete_shipping_logradouro).value = arr.logradouro;
+                        document.getElementById(postcodecomplete_shipping_bairro).value = arr.bairro;
+                        document.getElementById(postcodecomplete_shipping_cidade).value = arr.cidade;
+                        document.getElementById(postcodecomplete_shipping_uf).value = arr.uf;
                         //document.getElementById("shipping:street4").value = arr.complemento;
-                        document.getElementById("shipping:street1").focus();                    
+                        document.getElementById(postcodecomplete_shipping_logradouro).focus();                    
                     break;
             }
         }

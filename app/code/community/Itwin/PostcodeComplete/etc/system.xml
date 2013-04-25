@@ -11,7 +11,7 @@
  * http://opensource.org/licenses/osl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to suporte.developer@buscape-inc.com so we can send you a copy immediately.
+ * to developer@itwin.com.br so we can send you a copy immediately.
  *
  * @category   Itwin
  * @package    Itwin_PostcodeComplete
@@ -34,7 +34,7 @@
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
-             <groups>
+            <groups>
                 <postcodecomplete translate="label" module="postcodecomplete">
                     <label>Configuration</label>
                     <frontend_type>text</frontend_type>
@@ -42,7 +42,7 @@
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
-                     <fields>
+                    <fields>
                         <active translate="label">
                             <label>Enable</label>
                             <!-- <comment><![CDATA[ This text appears just beneath the field with a small arrow. <span class="notice">It can contain HTML formatting too!</span>]]></comment> -->

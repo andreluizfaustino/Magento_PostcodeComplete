@@ -10,7 +10,7 @@
  * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
+ * to developer@itwin.com.br so we can send you a copy immediately.
  *
  * DISCLAIMER
  *
@@ -18,13 +18,35 @@
  * versions in the future. If you wish to customize Magento for your
  * needs please refer to http://www.magentocommerce.com for more information.
  *
- * @category    Itwin
- * @package     Itwin_PostcodeComplete
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
 
+<?php 
+    $helper = Mage::Helper('postcodecomplete'); 
+?>
 <script type="text/javascript">
-    var postcode_complete_baseurl = "<?php echo $this->getBaseUrl(); ?>";
+    var postcodecomplete_baseurl = "<?php echo $this->getBaseUrl(); ?>";
+    
+    var postcodecomplete_customer_cep = '<?php echo $helper->getMappingValueCustomer('billing', 'cep'); ?>'    
+    var postcodecomplete_customer_logradouro = '<?php echo $helper->getMappingValueCustomer('billing', 'logradouro'); ?>'    
+    var postcodecomplete_customer_bairro = '<?php echo $helper->getMappingValueCustomer('billing', 'bairro'); ?>'    
+    var postcodecomplete_customer_cidade = '<?php echo $helper->getMappingValueCustomer('billing', 'cidade'); ?>';            
+    var postcodecomplete_customer_uf = '<?php echo $helper->getMappingValueCustomer('billing', 'uf'); ?>';
+    
+    var postcodecomplete_billing_cep = 'billing:<?php echo $helper->getMappingValue('billing', 'cep'); ?>'    
+    var postcodecomplete_billing_logradouro = 'billing:<?php echo $helper->getMappingValue('billing', 'logradouro'); ?>'    
+    var postcodecomplete_billing_bairro = 'billing:<?php echo $helper->getMappingValue('billing', 'bairro'); ?>'    
+    var postcodecomplete_billing_cidade = 'billing:<?php echo $helper->getMappingValue('billing', 'cidade'); ?>';            
+    var postcodecomplete_billing_uf = 'billing:<?php echo $helper->getMappingValue('billing', 'uf'); ?>';                
+
+    var postcodecomplete_shipping_cep = 'shipping:<?php echo $helper->getMappingValue('shipping', 'cep'); ?>'    
+    var postcodecomplete_shipping_logradouro = 'shipping:<?php echo $helper->getMappingValue('shipping', 'logradouro'); ?>'    
+    var postcodecomplete_shipping_bairro = 'shipping:<?php echo $helper->getMappingValue('shipping', 'bairro'); ?>'    
+    var postcodecomplete_shipping_cidade = 'shipping:<?php echo $helper->getMappingValue('shipping', 'cidade'); ?>';            
+    var postcodecomplete_shipping_uf = 'shipping:<?php echo $helper->getMappingValue('shipping', 'uf'); ?>';                
 </script>
 

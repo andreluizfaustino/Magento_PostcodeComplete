@@ -19,11 +19,14 @@
  */
 -->
 
-<config>
-    <modules>
-        <Itwin_PostcodeComplete>
-            <active>true</active>
-            <codePool>community</codePool>
-        </Itwin_PostcodeComplete>
-    </modules>
-</config>
+<layout version="0.1.0">
+    <adminhtml_mappingfields_index>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><script>itwin/postcodecomplete/postcodecomplete.js</script></action>
+        </reference>
+        
+        <reference name="content">
+            <block type="postcodecomplete/adminhtml_mappingfields" name="postcodecomplete_mappingfields" />
+        </reference>
+    </adminhtml_mappingfields_index>
+</layout>
